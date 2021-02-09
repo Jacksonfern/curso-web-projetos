@@ -2,9 +2,10 @@ const salaModel = require('../models/salaModel');
 
 function addSala(req, res){
     salaModel.addSala(req.body)
-      .then(result => {
+    .then(result => {
         res.status(200).json(result);
-    }).catch(error => {
+    })
+    .catch(error => {
         res.sendStatus(500);
         console.log(`${error.code}: ${error.sqlMessage}`);
     });
@@ -12,9 +13,10 @@ function addSala(req, res){
 
 function getBlocos(req, res){
     salaModel.getBlocos()
-      .then(results => {
+    .then(results => {
           res.status(200).send(results);
-    }).catch(error => {
+    })
+    .catch(error => {
         res.sendStatus(400);
         console.log(`${error.code}: ${error.sqlMessage}`);
     });
@@ -23,9 +25,10 @@ function getBlocos(req, res){
 function getSalaById(req, res){
     const id = [req.params.id];
     salaModel.getSalaById(id)
-      .then(results => {
+    .then(results => {
           res.status(200).send(results);
-    }).catch(error => {
+    })
+    .catch(error => {
         res.sendStatus(400);
         console.log(`${error.code}: ${error.sqlMessage}`);
     });
@@ -36,7 +39,8 @@ function getSalasByBloco(req, res){
     salaModel.getSalasByBloco(bloco)
     .then(results => {
         res.status(200).send(results);
-    }).catch(error => {
+    })
+    .catch(error => {
         res.sendStatus(400);
         console.log(`${error.code}: ${error.sqlMessage}`);
     });
@@ -44,9 +48,10 @@ function getSalasByBloco(req, res){
 
 function updateSala(req, res){
     salaModel.updateSala(req.params.id, req.body)
-      .then(() => {
+    .then(() => {
         res.sendStatus(200);
-    }).catch((error) => {
+    })
+    .catch((error) => {
         res.sendStatus(500);
         console.log(`${error.code}: ${error.sqlMessage}`);
     });
@@ -56,7 +61,8 @@ function deleteSala(req, res){
     salaModel.deleteSala(req.params.id)
     .then(() => {
         res.sendStatus(200);
-    }).catch(error => {
+    })
+    .catch(error => {
         res.sendStatus(500);
         console.log(`${error.code}: ${error.sqlMessage}`);
     });
