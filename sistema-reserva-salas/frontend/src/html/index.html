@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação</title>
+</head>
+<body>
+    <div class="main">
+        <div class="options">
+            <a href="#" page-link="autenticacao/cadastro.html">Cadastro</a>
+            <a href="#" page-link="autenticacao/login.html">Login</a>
+        </div>
+        <div class="form-content"></div>
+    </div>
+
+    <script>
+        fetch('autenticacao/cadastro.html')
+        .then(response => response.text())
+        .then(html => document.querySelector('.form-content').innerHTML = html);
+    </script>
+</body>
+</html>
